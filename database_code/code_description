@@ -1,0 +1,6 @@
+The chat_hood.sql is based on MySQL v8.0.
+Run this script in your database system will create 22 tables and each table will contains some sample data.
+
+The sample_query.sql is based on MySQL v8.0 too.
+Don't run this script directly in your database system.
+Just copy down some queries you want and implement these queries in the `chat_hood` database.
