@@ -116,7 +116,7 @@ where uid = 2;
 
 select thid
 from accessable_message natural join message, lastvisit
-where lastvisit.uid = 2 and ltimestamp < mtimestamp;
+where lastvisit.uid = 2 and lastvisit.ltimestamp < message.mtimestamp;
 
 drop view block_topic;
 drop view block_thread;
@@ -126,7 +126,7 @@ drop view accessable_message;
 create view friend_topic as
 select tid
 from topic natural join specifies
-where ttype = 'friend' and uid = 2;
+where topic.ttype = 'friend' and specifies.uid = 2;
 
 create view friend_thread as
 select thid
@@ -135,12 +135,12 @@ from `contains` join friend_topic on `contains`.tid = friend_topic.tid;
 create view accessable_message as
 select has.thid as thid, has.mid as mid
 from (friend_thread join has on friend_thread.thid = has.thid) join accesses on has.mid = accesses.mid
-where uid = 2;
+where accesses.uid = 2;
 
 insert into `unreads`(`uid`, `mid`)
 select lastvisit.uid, message.mid
 from accessable_message natural join message, lastvisit
-where lastvisit.uid = 2 and ltimestamp < mtimestamp;
+where lastvisit.uid = 2 and lastvisit.ltimestamp < message.mtimestamp;
 
 drop view friend_topic;
 drop view friend_thread;
