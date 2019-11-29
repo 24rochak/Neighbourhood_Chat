@@ -10,15 +10,17 @@ CREATE TABLE `hood_chat`.`user` (
   `uname` VARCHAR(45) NULL,
   `uaddress` VARCHAR(45) NULL,
   `uemail` VARCHAR(45) NULL,
+  `upassword`VARCHAR(45) NULL,
+  `pprofile` VARCHAR(45) NULL,
+  `pphoto` VARCHAR(45) NULL,
   PRIMARY KEY (`uid`));
 
-insert into `user`(`uid`, `uname`, `uaddress`, `uemail`) values
-(1, 'Ares', '', 'aczzyw@gmail.com'),
-(2, 'Chuck', '', '24rochak@gmail.com'),
-(3, 'Ricky', '', 'ricky@gmail.com'),
-(4, 'Bob', '', 'bob@gmail.com'),
-(5, 'Amy', '', 'amy@gmail.com');
-
+insert into `user`(`uid`, `uname`, `uaddress`, `uemail`,`upassword`,`pprofile`,`pphoto`) values
+(1, 'Ares', '', 'aczzyw@gmail.com','pwd1','','None'),
+(2, 'Chuck', '', '24rochak@gmail.com','pwd2','','None'),
+(3, 'Ricky', '', 'ricky@gmail.com','pwd3','','None'),
+(4, 'Bob', '', 'bob@gmail.com','pwd4','','None'),
+(5, 'Amy', '', 'amy@gmail.com','pwd5','','None');
 
 /* 2. hood table */
 DROP TABLE IF EXISTS `hood`;
@@ -104,18 +106,6 @@ insert into `thread`(`thid`) values
 (2),
 (3),
 (4);
-
-
-/* 7. profile table */
-DROP TABLE IF EXISTS `profile`;
-CREATE TABLE `hood_chat`.`profile` (
-  `uid` INT NOT NULL,
-  `pprofile` VARCHAR(45) NULL,
-  `pphoto` BLOB NULL,
-  PRIMARY KEY (`uid`));
-
-insert into `profile`(`uid`, `pprofile`, `pphoto`) values
-(1, 'a handsome boy', NULL);
 
 
 /* 8. notification table */
