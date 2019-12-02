@@ -135,7 +135,7 @@ select has.thid as thid, has.mid as mid
 from (friend_thread join has on friend_thread.thid = has.thid) join accesses on has.mid = accesses.mid
 where uid = 2;
 
-insert into `unreads`(`uid`, `mid`)
+
 select lastvisit.uid, message.mid
 from accessable_message natural join message, lastvisit
 where lastvisit.uid = 2 and lastvisit.ltimestamp < message.mtimestamp;
