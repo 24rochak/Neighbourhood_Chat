@@ -258,7 +258,7 @@ insert into `contains`(`tid`, `thid`) values
 (3, 4),
 (3, 5),
 (4, 6),
-(5, 7);
+(4, 7);
 
 
 /* 16. has table */
